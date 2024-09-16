@@ -1,24 +1,51 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import firebase from 'firebase/compat/app'; // ייבוא של Firebase
+import { Auth, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
+import { User } from '../models/user.interface';
+import { Router } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {}
+  constructor(
+    private firestore: Firestore,
+    private auth: Auth,
+    private router:Router
+  ) {
+   
+  }
 
   public signInWithGoogle() {
-    this.authLogin(new firebase.auth.GoogleAuthProvider());
+    this.authLogin(new GoogleAuthProvider());
   }
-   
-  private authLogin(provider: firebase.auth.AuthProvider) {
-    return this.afAuth.signInWithPopup(provider).then((res) => {
-      console.log(res);
-    }).catch((error) => {
-      console.error("Error during sign-in: ", error);
+  
+  private authLogin(provider: GoogleAuthProvider) {
+    return signInWithPopup(this.auth, provider).then((result) => {
+      console.log(result);
+      this.setUserData(result.user as User)
     });
+  }
+  private setUserData(user?: User): Promise<void> | void {
+    if (!user) return;
+  
+    const userRef = doc(this.firestore, `users/${user.uid}`);
+  
+    return setDoc(userRef, {
+      uid: user.uid,
+      email: user.email || null,
+      displayName: user.displayName || null,
+      photoURL: user.photoURL || null
+    }, { merge: true });
+  }
+  public signOut():Promise<void>
+  { 
+    return this.auth.signOut().then(()=>{
+     this.router.navigate(["/"]);
+    });
+
   }
 }
