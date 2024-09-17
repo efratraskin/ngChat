@@ -4,9 +4,18 @@
     <span class="header__spacer"></span>
     <button
     class="icon"
+    (click)="LoginWithGoogle()"
+    *ngIf="!(IsLoggedIn$ | async); else LoggedIn"
     >
      Login
     </button>
-
+    <ng-template #LoggedIn>
+     <button
+     class="icon"
+     (click)="signOut()"
+      >
+      LogOut
+      </button>
+    </ng-template>
   </mat-toolbar>
   </div>

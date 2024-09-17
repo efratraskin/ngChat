@@ -1,18 +1,22 @@
 .header {
-  .mat-toolbar {
-    background-color: #2196F3; /* כחול */
-    color: white; /* טקסט לבן */
-    display: flex;
-    justify-content: space-between; /* מפריד בין אלמנטים בצורה שווה */
-    align-items: center; /* מסדר את האלמנטים במרכז בגובה */
-  }
+  display: flex;
+  justify-content: space-between; /* מפריד בין אלמנטים בצורה שווה */
+  align-items: center; /* מסדר את האלמנטים במרכז בגובה */
+}
 
-  &__spacer {
-    flex: 1;
-  }
+.header .mat-toolbar {
+  background-color: #2196F3; /* כחול */
+  color: white; /* טקסט לבן */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
 
-  .icon {
-    color: rgb(9, 9, 9); /* צבע כפתור לבן */
-    background-color: white; /* צבע רקע שקוף */
-  }
+.header .__spacer {
+  flex: 1;
+}
+
+.header .icon {
+  color: rgb(9, 9, 9); 
+  background-color: white; 
 }
