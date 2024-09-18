@@ -1,6 +1,6 @@
 <div class="chat-container">
-    <div class="chat-container__room-list">
-    <app-room-list [rooms]="rooms$"|async></app-room-list>
+    <div class="chat-container__room-list" *ngIf="rooms$|async as room">
+    <app-room-list [rooms]="room"></app-room-list>
     </div>
     <div class="chat-container__chat">
         <h3>CHAT</h3>

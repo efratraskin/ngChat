@@ -25,13 +25,11 @@ export class AuthService {
         const userString = JSON.stringify(user);
         localStorage.setItem('user', userString);
         if (this.IsLoggedIn$.getValue() === false) {
-          // If not already set to true, update the value
           this.IsLoggedIn$.next(true);
         }
         console.log('efrattt AuthService - User logged in');
       } else {
         if (this.IsLoggedIn$.getValue() === true) {
-          // If not already set to false, update the value
           this.IsLoggedIn$.next(false);
         }
         localStorage.removeItem('user');
@@ -40,7 +38,6 @@ export class AuthService {
       console.log('efrattt AuthService - IsLoggedIn$', this.IsLoggedIn$.getValue());
     });
   }
-  
 
   public IsLogged(): Observable<boolean> {
     return this.IsLoggedIn$.asObservable().pipe(
@@ -49,6 +46,7 @@ export class AuthService {
       })
     );
   }
+  
 
   public signOut(): Promise<void> {
     return this.auth.signOut().then(() => {

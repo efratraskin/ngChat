@@ -13,6 +13,7 @@ import { getAuth } from 'firebase/auth';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { Observable } from 'rxjs';
 import { IChatRoom } from '../../models';
-
+import { RoomListComponent } from '../room-list/room-list.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-chat-container',
   standalone: true,
-  imports: [],
+  imports: [RoomListComponent,CommonModule,RouterModule],
   templateUrl: './chat-container.component.html',
   styleUrl: './chat-container.component.css'
 })

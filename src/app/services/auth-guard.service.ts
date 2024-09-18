@@ -19,7 +19,12 @@ export class AuthGuardService implements CanActivate {
           this.router.navigate(['/']);
         }
       }),
-      map(userIsLoggedIn => userIsLoggedIn) // מחזיר true או false
+      map(userIsLoggedIn => {
+        // Return true if userIsLoggedIn is true
+        const isLoggedIn = userIsLoggedIn === true;
+        console.log('efrattt AuthGuardService - CanActivate result:', isLoggedIn);
+        return isLoggedIn;
+      })
     );
   }
 }
