@@ -65,6 +65,8 @@ export class AuthService {
   private authLogin(provider: GoogleAuthProvider) {
     return signInWithPopup(this.auth, provider).then((result) => {
       console.log(result);
+      this.IsLoggedIn$.next(true);
+      this.router.navigate(['chat']);
       this.setUserData(result.user as User);
     });
   }

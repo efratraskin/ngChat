@@ -1,1 +1,12 @@
-<p>chat-container works!</p>
+<div class="chat-container">
+    <div class="chat-container__room-list">
+    <app-room-list [rooms]="rooms$"|async></app-room-list>
+    </div>
+    <div class="chat-container__chat">
+        <h3>CHAT</h3>
+    </div>
+    <div class="chat-container__add-room">
+        <button type = "button"mat-raised-button color="primary">Add Room</button>
+    </div>
+</div>
+

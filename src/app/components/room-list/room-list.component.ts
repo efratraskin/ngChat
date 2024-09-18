@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
+import { IChatRoom } from '../../models';
+import {MatListModule} from '@angular/material/list';
+
 
 @Component({
   selector: 'app-room-list',
   standalone: true,
-  imports: [],
+  imports: [MatListModule],
   templateUrl: './room-list.component.html',
   styleUrl: './room-list.component.css'
 })
-export class RoomListComponent {
+export class RoomListComponent implements OnInit{
+
+  @Input() rooms:Array<IChatRoom> | undefined
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
 }
