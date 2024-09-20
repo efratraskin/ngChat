@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IChatRoom } from '../models';
+import { IChatRoom, IMessage } from '../models';
 import { map } from 'rxjs/operators';
 import { Firestore, collection, getDocs, CollectionReference } from '@angular/fire/firestore';
 import { inject } from '@angular/core';
@@ -31,4 +31,25 @@ export class ChatService {
         });
     });
   }
+  
+  public getRoomMessages(roomId: string): Observable<Array<IMessage>> {
+    const roomsCollection: CollectionReference = collection(this._db, 'rooms');
+    const messagesCollection: CollectionReference = collection(roomsCollection, roomId, 'messages');
+  
+    return new Observable<Array<IMessage>>(observer => {
+      getDocs(messagesCollection)
+        .then(snapshot => {
+          const messages: IMessage[] = snapshot.docs.map(doc => {
+            const data = doc.data() as IMessage;
+            return { ...data, id: doc.id };
+          });
+          observer.next(messages);
+          observer.complete();
+        })
+        .catch(error => {
+          observer.error(error);
+        });
+    });
+  }
+  
 }

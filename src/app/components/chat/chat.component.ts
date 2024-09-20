@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IMessage } from '../../models';
 
 @Component({
   selector: 'app-chat',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit{
+@Input() massages:Array<IMessage>=[];
+constructor(){
 
+}
+  ngOnInit(): void {
+   console.log("efrat & dudi",this.massages);
+  }
 }

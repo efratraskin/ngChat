@@ -2,8 +2,8 @@
     <div class="chat-container__room-list" *ngIf="rooms$|async as room">
     <app-room-list [rooms]="room"></app-room-list>
     </div>
-    <div class="chat-container__chat">
-        <h3>CHAT</h3>
+    <div class="chat-container__chat" *ngIf="massages$ |async as massages">
+        <app-chat [massages]="massages"></app-chat>
     </div>
     <div class="chat-container__add-room">
         <button type = "button"mat-raised-button color="primary">Add Room</button>
