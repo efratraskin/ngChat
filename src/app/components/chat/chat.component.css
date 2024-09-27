@@ -1,0 +1,147 @@
+::ng-deep cdk-virtual-scroll-viewport {
+    height: 100%; /* תן לגובה מלא של חלונית ההודעות */
+    overflow: auto; /* אפשר גלילה אם התוכן ארוך */
+}
+
+.chat {
+    height: auto; /* גובה אוטומטי */
+    width: 100%; /* מלא את הרוחב */
+    border: 1px solid black;
+    display: flex; /* השתמש ב-flexbox */
+    flex-direction: column; /* כיוון עמודה */
+    align-items: center; /* מרכז תוכן אופקית */
+    justify-content: center; /* מרכז תוכן אנכית */
+    position: relative; /* כדי לאפשר למרכז את התוכן הפנימי */
+}
+
+.chat__case {
+    height: 560px; /* גובה הטלפון */
+    width: 277px; /* רוחב הטלפון */
+    border-radius: 40px 40px;
+    border: 1px solid #000;
+    position: relative; /* יש לאפשר למרכז את התוכן הפנימי */
+    margin: auto; /* מרכז את הטלפון */
+}
+
+.chat__earsection {
+    margin-top: 36px;
+    margin-left: 72px;
+    height: 16px;
+}
+
+.chat__camera {
+    position: absolute;
+    top: 33px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    border-radius: 9px 9px;
+}
+
+.chat__speaker {
+    position: absolute;
+    top: 39px;
+    left: 97px;
+    width: 54px;
+    height: 5px;
+    border: 1px solid #000;
+    border-radius: 7px 7px;
+}
+
+.chat__screen {
+    clear: both;
+    width: 250px;
+    height: 374px;
+    margin: auto;
+    margin-top: 35px;
+    border: 1px solid #000;
+}
+
+.chat__screen iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.chat__messages {
+    height: 80%; /* גובה של 80% מהחלונית ההורה */
+    width: 100%; /* מלא את הרוחב */
+}
+
+.chat__send-message {
+    position: relative;
+}
+
+.chat__send-message button {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.chat__button {
+    height: 56px;
+    width: 56px;
+    border: 1px solid #000;
+    border-radius: 28px 28px;
+    margin: auto;
+    margin-top: 22px;
+}
+
+.chat__buttonsquare {
+    height: 17px;
+    width: 17px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 18px;
+}
+
+.chat__viewport {
+    height: calc(100% - 51px);
+    width: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.chat__message {
+    position: relative;
+    background: #e3e3e3;
+    margin: 10px 10px 10px 30px;
+    padding: 10px;
+    max-width: 180px; /* הוגדל רוחב מקסימלי לבועה */
+    word-wrap: break-word; /* אפשר לפרק מילים ארוכות */
+    overflow-wrap: break-word; /* לדאוג שהתוכן יפרק נכון גם במקרים של מילים ארוכות */
+    box-sizing: border-box; /* תוודא שה-padding לא משפיע על הרוחב הכולל */
+}
+
+.chat__message::after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #e3e3e3 transparent transparent;
+}
+
+.chat__message--current-user {
+    background: #96ff76;
+    margin: 10px 30px 10px 10px;
+    padding: 10px;
+    max-width: 180px; /* הוגדל רוחב מקסימלי לבועה של המשתמש הנוכחי */
+}
+
+.chat__message--current-user::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: -20px;
+    top: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #96ff76 transparent transparent transparent;
+}

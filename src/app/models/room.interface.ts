@@ -3,6 +3,7 @@ import { IMessage } from "./";//index
 export interface IChatRoom{
     id:string;
     roomName:string;
-    messages:Array<IMessage>;
+   /* messages:Array<IMessage>;*/
     createdUserId:string;
+    messages?: IMessage[];
 }

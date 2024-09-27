@@ -10,6 +10,7 @@
      Login
     </button>
     <ng-template #LoggedIn>
+      <a class="header__link" [routerLink]="['/chat']">chat</a>
      <button
      class="icon"
      (click)="signOut()"

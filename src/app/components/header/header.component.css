@@ -15,7 +15,11 @@
 .header .__spacer {
   flex: 1;
 }
-
+.header .__link {
+  padding: 10px;
+  color: white; /* טקסט לבן */
+  text-decoration: none;
+}
 .header .icon {
   color: rgb(9, 9, 9); 
   background-color: white; 

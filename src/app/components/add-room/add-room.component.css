@@ -1,0 +1,55 @@
+.dialog-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* צבע רקע שקוף */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto; /* אפשר לחיצות */
+  }
+  
+  .dialog-content {
+    background-color: white; /* צבע החלונית */
+    padding: 20px;
+    border-radius: 4px; /* פינה מעוגלת */
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* למתוח את המיכל לאורך החלונית */
+    padding: 20px;
+    max-width: 300px; /* הגבלת רוחב המיכל */
+    margin: auto; /* מרכז את המיכל */
+  }
+  
+  input {
+    width: 100%; /* רוחב מלא של המיכל */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    display: flex; /* הצגת הכפתורים בסגנון שורה */
+    justify-content: space-between; /* מרווח שווה בין הכפתורים */
+  }
+  
+  button {
+    flex: 1; /* כל כפתור תופס שטח שווה */
+    padding: 10px;
+    margin: 0 5px; /* רווחים בין הכפתורים */
+    border-radius: 4px;
+  }
+  
+  button:last-child {
+    margin-right: 0; /* לא להוסיף רווח אחרון */
+  }
+  
+  button:first-child {
+    margin-left: 0; /* לא להוסיף רווח ראשון */
+  }
+  

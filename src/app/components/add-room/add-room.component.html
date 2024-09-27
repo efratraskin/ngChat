@@ -1,1 +1,11 @@
-<p>add-room works!</p>
+<div class="dialog-background" (click)="onBackgroundClick()">
+    <div class="dialog-content" (click)="$event.stopPropagation()">
+      <h1>Add Room</h1>
+      <input type="text" [(ngModel)]="roomName" placeholder="Room Name" /> <!-- שייך למשתנה -->
+      <div>
+        <button mat-button (click)="onOkClick()" cdkFocusInitial>OK</button>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

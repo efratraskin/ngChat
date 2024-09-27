@@ -3,7 +3,7 @@ import { Auth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from '@
 import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import { User } from '../models/user.interface';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +46,13 @@ export class AuthService {
       })
     );
   }
+  
+  public getUserDetails(): Observable<User> {
+    return this.UserDetails$.asObservable().pipe(
+      filter((user): user is User => user !== null) // מסנן ערכים null
+    );
+  }
+  
   
 
   public signOut(): Promise<void> {

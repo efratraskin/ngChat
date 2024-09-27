@@ -3,11 +3,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule,CommonModule],
+  imports: [MatToolbarModule,CommonModule,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

@@ -1,1 +1,24 @@
-<p>chat works!</p>
+<div class="chat">
+    <div class="chat__case">
+        <div class="chat__earsection">
+            <div class="chat__camera"></div>
+            <div class="chat__speaker"></div>
+        </div>
+        <div class="chat__screen">
+            <div class="chat__messages">
+                <cdk-virtual-scroll-viewport itemSize="15" class="chat__scroller" #virtualScroll>
+                    <div *cdkVirtualFor="let message of messages" class="chat__message">{{message.body}}</div>
+                </cdk-virtual-scroll-viewport>
+            </div>
+        </div>
+        <div class="chat__send-message">
+            <div *ngIf="roomId">
+                <input type="text" #newMessage placeholder="Write a message" />
+                <button (click)="sendMessage(newMessage)">Send</button>
+            </div>
+        </div>
+        <div class="chat__button">
+            <div class="chat__buttonsquare"></div>
+        </div>
+    </div>
+</div>
